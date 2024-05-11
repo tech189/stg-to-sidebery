@@ -1,4 +1,4 @@
-import os, json, random, string, time, datetime
+import json, random, string, datetime
 
 # fill these with the path to a backup from Simple Tab Groups and then a Sidebery snapshot
 simple_tab_groups_file_path = "/full/path/to/manual-stg-backup-xyz.json"
