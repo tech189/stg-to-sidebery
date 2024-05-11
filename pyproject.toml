@@ -18,3 +18,11 @@ distribution = false
 lint = [
     "ruff>=0.4.3",
 ]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
