@@ -1,0 +1,32 @@
+[project]
+name = "stg-to-sidebery"
+version = "0.1.0"
+description = "Convert Simple Tab Groups backup to Sidebery snapshot"
+authors = [
+    {name = "tech189", email = ""},
+]
+dependencies = []
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "ruff>=0.4.3",
+]
+
+[tool.pdm.scripts]
+lint = "ruff check ."
+format = "ruff format ."
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
