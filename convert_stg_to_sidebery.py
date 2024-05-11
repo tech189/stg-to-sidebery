@@ -1,10 +1,32 @@
 import os, json, random, string, time, datetime
+import argparse
+from pathlib import Path
 
-# fill these with the path to a backup from Simple Tab Groups and then a Sidebery snapshot
-simple_tab_groups_file_path = "/full/path/to/manual-stg-backup-xyz.json"
-sidebery_snapshot_file_path = "/full/path/to/snapshot-xyz.json"
+parser = argparse.ArgumentParser(
+    prog="convert_stg_to_sidebery",
+    description="""
+    Convert a Simple Tab Groups backup to a Sidebery snapshot to be able to
+    migrate your tab configuration as accurately as possible between extensions
+    """,
+    formatter_class=argparse.RawTextHelpFormatter,
+)
+parser.add_argument(
+    "--simple-tab-groups-backup",
+    type=Path,
+    required=True,
+    metavar="PATH",
+    help="Path to the source Simple Tab Groups backup file",
+)
+parser.add_argument(
+    "--sidebery-snapshot",
+    type=Path,
+    required=True,
+    metavar="PATH",
+    help="Path to the base Sidebery exported snapshot file",
+)
+arguments = parser.parse_args()
 
-with open(simple_tab_groups_file_path, 'r') as stg_file, open(sidebery_snapshot_file_path) as sidebery_file:
+with open(arguments.simple_tab_groups_backup, 'r') as stg_file, open(arguments.sidebery_snapshot) as sidebery_file:
     # take in both files
     stg = json.load(stg_file)
     sbry = json.load(sidebery_file)

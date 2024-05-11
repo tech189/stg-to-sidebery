@@ -4,8 +4,13 @@
 3. Install Sidebery
 4. Go to Sidebery's settings and save a snapshot (Settings>Snapshots viewer>Create snapshot)
 5. Save the Python file in this repository (`convert_stg_to_sidebery.py`)
-6. Edit lines 4 and 5 with the full paths to your Simple Tab Groups backup and Sidebery snapshot
-7. Run it with `python3 convert_stg_to_sidebery.py` - output saved to wherever you ran the Python file
+7. Run it by providing the paths to where the STG backup file and the Sidebery snapshot are stored:
+    ```sh
+    python3 convert_stg_to_sidebery.py \
+        --simple-tab-groups-backup "path/to/stg-backup.json" \
+        --sidebery-snapshot "path/to/sidebery-snapshot.json"
+    ```
+   The output will be saved to wherever you ran the Python file
 8. Import the generated `sidebery-output.json` in Sidebery (Settings>Snapshots viewer>Import snapshot)
 9. Once loaded, click on the imported snapshot in the list and then click `Open window` on the right
 10. A new window opens with all your tabs sorted again - **this may take 20 seconds or so with e.g. 500+ tabs**
