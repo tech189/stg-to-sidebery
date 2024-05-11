@@ -4,18 +4,25 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser(
     prog="convert_stg_to_sidebery",
+    description="""
+    Convert a Simple Tab Groups backup to a Sidebery snapshot to be able to
+    migrate your tab configuration as accurately as possible between extensions
+    """,
+    formatter_class=argparse.RawTextHelpFormatter,
 )
 parser.add_argument(
     "--simple-tab-groups-backup",
     type=Path,
     required=True,
     metavar="PATH",
+    help="Path to the source Simple Tab Groups backup file",
 )
 parser.add_argument(
     "--sidebery-snapshot",
     type=Path,
     required=True,
     metavar="PATH",
+    help="Path to the base Sidebery exported snapshot file",
 )
 arguments = parser.parse_args()
 
